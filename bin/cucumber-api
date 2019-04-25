@@ -1,0 +1,10 @@
+#!/bin/bash -ex
+
+path=$1
+if [ "$path" == "" ]; then
+  path=cucumber/api/features/
+else
+  path=cucumber/api/features/"$path"
+fi
+
+exec ./bin/cucumber -r cucumber/api/features/support/ -r cucumber/api/features/step_definitions/ $path
